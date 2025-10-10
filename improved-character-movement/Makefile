@@ -15,7 +15,7 @@ all: $(TARGET)
 
 # Rule to build the executable
 $(TARGET) : $(SRC)
-	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET) $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET) $(shell sdl2-config --libs) -lSDL2_image
 
 # Run the program (if we type make run in terminal)
 run: $(TARGET)

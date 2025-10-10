@@ -2,7 +2,7 @@
 #include <iostream>
 
 // Start with no window, no renderer, not running, no background
-Game::Game() : window(nullptr), renderer(nullptr), isRunning(false), background(nullptr) {}
+Game::Game() : window(nullptr), renderer(nullptr), background(nullptr), isRunning(false) {}
 
 // Destructor for cleanup
 Game::~Game() {
