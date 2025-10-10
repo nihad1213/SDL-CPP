@@ -22,6 +22,7 @@ private:
     void Render();
     SDL_Window* window;
     SDL_Renderer* renderer;
+    SDL_Texture* background;
     bool isRunning;
 
     static const int SCREEN_WIDTH = 800;
