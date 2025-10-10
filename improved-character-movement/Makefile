@@ -5,7 +5,7 @@ CXX := g++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++23 $(shell sdl2-config --cflags)
 
 # Define source files
-SRC = main.cpp
+SRC = main.cpp Game/Game.cpp
 
 # Output executable name
 TARGET = i_character_movement
