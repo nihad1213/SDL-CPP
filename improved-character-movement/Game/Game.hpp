@@ -2,7 +2,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
-/*
+/**
 * Game class manages main loop, event handling, updating and
 * rendering.
 */

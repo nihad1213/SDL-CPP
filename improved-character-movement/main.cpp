@@ -9,8 +9,8 @@ int main() {
         return -1;
     }
 
-    game.Run();
-    game.Cleanup();
+    // game.Run();
+    // game.Cleanup();
 
     return 0;
 }
