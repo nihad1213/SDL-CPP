@@ -9,7 +9,7 @@ int main() {
         return -1;
     }
 
-    // game.Run();
+    game.Run();
     // game.Cleanup();
 
     return 0;

@@ -65,7 +65,12 @@ bool Game::Init() {
  * Main game loop
  */
 void Game::Run() {
-
+    while (isRunning) {
+        // HandleEvents();
+        // Update();
+        // Render();
+        SDL_Delay(16);
+    }
 }
 
 /**
