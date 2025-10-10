@@ -68,7 +68,7 @@ void Game::Run() {
     while (isRunning) {
         // HandleEvents();
         // Update();
-        // Render();
+        Render();
         SDL_Delay(16);
     }
 }
@@ -98,6 +98,12 @@ void Game::Update() {
  * Render the current frame
  */
 void Game::Render() {
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderClear(renderer);
+    
+    SDL_Rect dst = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
+    SDL_RenderCopy(renderer, background, nullptr, &dst);
 
+    SDL_RenderPresent(renderer);
 }
 
