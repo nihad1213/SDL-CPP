@@ -78,6 +78,19 @@ void Game::Run() {
  */
 void Game::Cleanup() {
     // Player need to added
+
+    if (!renderer) {
+        SDL_DestroyRenderer(renderer);
+        renderer = nullptr;
+    }
+
+    if (!window) {
+        SDL_DestroyWindow(window);
+        window = nullptr;
+    }
+
+    IMG_Quit();
+    SDL_Quit();
 }
 
 /**
