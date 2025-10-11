@@ -97,6 +97,16 @@ void Game::Cleanup() {
  * Handle user input events
  */
 void Game::HandleEvents() {
+    SDL_Event e;
+    
+    while (SDL_PollEvent(&e)) {
+        if (e.type == SDL_QUIT) {
+            isRunning = false;
+        }
+    }
+
+    const Uint8* keyState = SDL_GetKeyboardState(nullptr);
+    // Player need to be added
 
 }
 
@@ -104,7 +114,7 @@ void Game::HandleEvents() {
  * Update game state
  */
 void Game::Update() {
-
+    // Player need to be added
 }
 
 /**
