@@ -77,7 +77,7 @@ void Game::Run() {
  * Clean the resources
  */
 void Game::Cleanup() {
-
+    // Player need to added
 }
 
 /**
@@ -98,6 +98,7 @@ void Game::Update() {
  * Render the current frame
  */
 void Game::Render() {
+    // Player need to be added
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
     
