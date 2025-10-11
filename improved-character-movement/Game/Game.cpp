@@ -1,16 +1,19 @@
 #include "Game.hpp"
 #include <iostream>
-
-// Start with no window, no renderer, not running, no background
+/**
+ * Game class implementation
+ */
 Game::Game() : window(nullptr), renderer(nullptr), background(nullptr), isRunning(false) {}
 
-// Destructor for cleanup
+/**
+ * Game class destructor
+ */
 Game::~Game() {
     Cleanup();
 }
 
 /**
- * Initialize SDL, create window and renderer, load background texture
+ * Initialize the game
  */
 bool Game::Init() {
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -57,6 +60,11 @@ bool Game::Init() {
         return false;
     }
 
+    if (!player.Init(renderer)) {
+        std::cerr << "Failed to initialize player!" << std::endl;
+        return false;
+    }
+
     isRunning = true;
     return true;
 }
@@ -66,25 +74,30 @@ bool Game::Init() {
  */
 void Game::Run() {
     while (isRunning) {
-        // HandleEvents();
-        // Update();
+        HandleEvents();
+        Update();
         Render();
         SDL_Delay(16);
     }
 }
 
 /**
- * Clean the resources
+ * Cleanup resources
  */
 void Game::Cleanup() {
-    // Player need to added
+    player.Cleanup();
 
-    if (!renderer) {
+    if (background) {
+        SDL_DestroyTexture(background);
+        background = nullptr;
+    }
+
+    if (renderer) {
         SDL_DestroyRenderer(renderer);
         renderer = nullptr;
     }
 
-    if (!window) {
+    if (window) {
         SDL_DestroyWindow(window);
         window = nullptr;
     }
@@ -94,7 +107,7 @@ void Game::Cleanup() {
 }
 
 /**
- * Handle user input events
+ * Handle input events
  */
 void Game::HandleEvents() {
     SDL_Event e;
@@ -106,28 +119,27 @@ void Game::HandleEvents() {
     }
 
     const Uint8* keyState = SDL_GetKeyboardState(nullptr);
-    // Player need to be added
-
+    player.HandleInput(keyState);
 }
 
 /**
  * Update game state
  */
 void Game::Update() {
-    // Player need to be added
+    player.Update();
 }
 
 /**
- * Render the current frame
+ * Render the game
  */
 void Game::Render() {
-    // Player need to be added
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
     
     SDL_Rect dst = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
     SDL_RenderCopy(renderer, background, nullptr, &dst);
 
+    player.Render(renderer);
+
     SDL_RenderPresent(renderer);
 }
-

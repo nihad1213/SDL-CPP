@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include "../Player/Player.hpp"
 
 /**
 * Game class manages main loop, event handling, updating and
@@ -20,9 +21,11 @@ private:
     void HandleEvents();
     void Update();
     void Render();
+
     SDL_Window* window;
     SDL_Renderer* renderer;
     SDL_Texture* background;
+    Player player;
     bool isRunning;
 
     static const int SCREEN_WIDTH = 800;

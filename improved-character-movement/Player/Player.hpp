@@ -24,8 +24,15 @@ public:
 private:
     void UpdateAnimation();
     void UpdatePhysics();
+    SDL_Texture* LoadTexture(SDL_Renderer* renderer, const char* path);
     
     SDL_Texture* spriteTexture;
+    SDL_Texture* idleTexture;
+    SDL_Texture* walkTexture;
+    SDL_Texture* runTexture;
+    SDL_Texture* jumpTexture;
+    SDL_Texture* attackTexture;
+    
     SDL_Rect srcRect;
     SDL_Rect destRect;
     

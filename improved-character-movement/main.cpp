@@ -10,7 +10,7 @@ int main() {
     }
 
     game.Run();
-    // game.Cleanup();
+    game.Cleanup();
 
     return 0;
 }
