@@ -2,7 +2,7 @@ CXX := g++
 
 CXXFLAGS := -Wall -Wextra -Werror -std=c++23 $(shell sdl2-config --cflags)
 
-LDFLAGS := $(shell sdl2-config --libs)
+LDFLAGS := $(shell sdl2-config --libs) -lGL -lGLU
 
 SRC = main.cpp
 
