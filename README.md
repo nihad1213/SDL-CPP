@@ -5,4 +5,4 @@ SDL2 is a cross-platform library designed to provide low-level access to audio, 
 
 ## Prerequisites
 
-Make sure you have the required development libraries installed on **Ubuntu**:
+Make sure you have the required development libraries installed on **Ubuntu**
